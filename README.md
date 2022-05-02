@@ -6,7 +6,7 @@ A serverless deployment of a Flask REST API on AWS. I challenged myself to see c
 
 The API endpoint retrieves player data for a selected player, based on their statistics from the 2019/20 English Premier League season. An Amazon DynamoDB NoSQL database serves as the backend database for the project, which I created from a publicly available csv file.
 
-The Flask app (api.dynamo.py) is deployed as an AWS Lambda function, using API Gateway to expose its endpoint. The architecture is totally serverless.
+The Flask app (api.dynamo.py) is deployed as an AWS Lambda function, using an API Gateway to expose its endpoint. Calling the endpoint will fetch data from the DynamoDB and respond back with player data. The architecture is totally serverless.
 
 ## Getting Started
 
