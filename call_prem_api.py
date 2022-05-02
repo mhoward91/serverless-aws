@@ -7,7 +7,7 @@ req1 = requests.get(f"https://7gie9bueak.execute-api.eu-west-2.amazonaws.com/dev
 req = req1.json()                   
 if req1.ok:
     print()
-    print(f"{req['player']} - 2020/2021 Premier League Season Statistics playing for {req['team']}:")
+    print(f"{req['player']} - 2019/2020 Premier League Season Statistics playing for {req['team']}:")
     print()
     print(f"Games Played: {req['games_played']}")
     print(f"Games Started: {req['games_started']}")
