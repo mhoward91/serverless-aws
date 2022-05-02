@@ -1,6 +1,5 @@
 from flask import Flask, json # type: ignore
 from flask import jsonify
-from flask_restful import Resource, Api, reqparse # type: ignore
 import boto3 # type: ignore
 import os
 
