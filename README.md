@@ -15,7 +15,7 @@ The Flask app (api.dynamo.py) is deployed as an AWS Lambda function, using an AP
 In order to call the API endpoint from a python program, install the `requests` module from PyPI:
 
 ```python
-pip install requests
+$ pip install requests
 ```
 
 ### Available request methods
