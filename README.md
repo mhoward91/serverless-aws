@@ -1,4 +1,4 @@
-# serverless-aws
+# Serverless-AWS
 
 A serverless deployment of a Flask REST API on AWS. I challenged myself to see code through to deployment, and learn about some common serverless infrastructure.   
 
