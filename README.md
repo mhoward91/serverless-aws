@@ -81,5 +81,9 @@ print(f"{req['player']} played for {req['team']}, and scored {req['goals']} goal
 | /database-setup/data_load.py | Loading of player data from the original csv file to the DynamoDB database |
 | /database-setup/api_build.py | Flask RESTful API with `GET`, `POST` and `DELETE` requests to modify the csv data file. Not deployed |
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
 ## Final word
 For more API development, including authentication elements, please refer to my [REST-APIs-Flask repository.](https://github.com/mhoward91/REST-APIs-Flask)
