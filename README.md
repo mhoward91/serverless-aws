@@ -10,19 +10,19 @@ The Flask app (api.dynamo.py) is deployed as an AWS Lambda function, using an AP
 
 ## Getting Started
 
-### Installing
+### URL
 
-In order to call the API endpoint from a python program, install the `requests` module from PyPI:
+https<nolink>://7gie9bueak.execute-api.eu-west-2.amazonaws.com/dev/players/\<player\>
 
-```python
-$ pip install requests
-```
+- **URL Parameters** `GET`
 
-### Available request methods
+    `player=[str]` (required) 
+  
+### Available methods
 
 | Method   | Description                              |
 | -------- | ---------------------------------------- |
-| `GET`    | Returns a `dict` of data for a single player, defined by the \<player\> parameter|
+| `GET`    | Returns a `dict` of data for a single player, identified by the \<player\> parameter|
 
 ### Available data
 - team 
@@ -35,18 +35,21 @@ $ pip install requests
 - assists
 - rank
 
-### Executing a request
+## Sample calls (from Python)
 
+In order to call the API endpoint from a python program, install the `requests` module from PyPI:
+
+```python
+$ pip install requests
+```
+
+### Executing a request
+  
+#### Example 1 - request all data for Marcus Rashford:
+  
 ``` python
 import requests
 
-# replace the <player> parameter with the full name of the desired player
-requests.get("https://7gie9bueak.execute-api.eu-west-2.amazonaws.com/dev/players/<player>").json()
-```
-
-#### Example 1 - request all data for Marcus Rashford:
-
-``` python
 stats = requests.get("https://7gie9bueak.execute-api.eu-west-2.amazonaws.com/dev/players/Marcus%20Rashford").json()
 print("Marcus Rashford statistics:", stats, sep="\n\n")
 ```
@@ -61,6 +64,8 @@ print("Marcus Rashford statistics:", stats, sep="\n\n")
 #### Example 2 - request team & goal data for Harry Kane:
 
 ``` python
+import requests
+  
 req = requests.get("https://7gie9bueak.execute-api.eu-west-2.amazonaws.com/dev/players/Harry%20Kane").json()
 print(f"{req['player']} played for {req['team']}, and scored {req['goals']} goals.")
 ```
@@ -71,15 +76,15 @@ print(f"{req['player']} played for {req['team']}, and scored {req['goals']} goal
 "Harry Kane played for Tottenham Hotspur, and scored 18 goals."
 ```
 
-## Key files in repository
+## Repository file guide
 
 
 | File   | Description                              |
 | -------- | ---------------------------------------- |
-| api_dynamo.py    | The primary Flask API |
-| call_prem_api.py | Takes user input to select a player, and calls the API to return cleanly structured data |
-| /database-setup/data_load.py | Loading of player data from the original csv file to the DynamoDB database |
-| /database-setup/api_build.py | Flask RESTful API with `GET`, `POST` and `DELETE` requests to modify the csv data file. Not deployed |
+| [api_dynamo.py](https://github.com/mhoward91/serverless-aws/blob/master/api_dynamo.py) | The primary Flask API |
+| [call_prem_api.py](https://github.com/mhoward91/serverless-aws/blob/master/call_prem_api.py) | Takes user input to select a player, and calls the API to return cleanly structured data |
+| [data_load.py](https://github.com/mhoward91/serverless-aws/blob/master/database-setup/data_load.py) | Loading of player data from the original csv file to the DynamoDB database |
+| [api_build.py](https://github.com/mhoward91/serverless-aws/blob/master/database-setup/api_build.py) | Flask RESTful API with `GET`, `POST` and `DELETE` requests to modify the csv data file. Not deployed |
 
 ## License
 
