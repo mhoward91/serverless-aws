@@ -1,12 +1,12 @@
 # Serverless-AWS
 
-A serverless deployment of a Flask REST API on AWS. I challenged myself to see code through to deployment, and learn about some common serverless infrastructure.   
+Serverless deployment of a Flask REST API on AWS. The challenge was to see code through to deployment, and learn about some common serverless infrastructure.   
 
 ## Description
 
 The API endpoint retrieves player data for a selected player, based on their statistics from the 2019/20 English Premier League season. An Amazon DynamoDB NoSQL database serves as the backend database for the project, which I created from a publicly available csv file.
 
-The Flask app (api.dynamo.py) is deployed as an AWS Lambda function, using an API Gateway to expose its endpoint. Calling the endpoint will fetch data from the DynamoDB and respond back with player data. The architecture is totally serverless.
+The Flask app (api.dynamo.py) is deployed as an AWS Lambda function, using API Gateway to expose its endpoint. Calling the endpoint will fetch data from the DynamoDB and respond back with player data. The architecture is totally serverless.
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ https<nolink>://7gie9bueak.execute-api.eu-west-2.amazonaws.com/dev/players/\<pla
 
 | Method   | Description                              |
 | -------- | ---------------------------------------- |
-| `GET`    | Returns a `dict` of data for a single player, identified by the \<player\> parameter|
+| `GET`    | Returns a JSON object containing data for the player identified by the \<player\> parameter|
 
 ### Available data
 - team 
@@ -81,7 +81,7 @@ print(f"{req['player']} played for {req['team']}, and scored {req['goals']} goal
 
 | File   | Description                              |
 | -------- | ---------------------------------------- |
-| [api_dynamo.py](https://github.com/mhoward91/serverless-aws/blob/master/api_dynamo.py) | The primary Flask API |
+| [api_dynamo.py](https://github.com/mhoward91/serverless-aws/blob/master/api_dynamo.py) | The Flask API |
 | [call_prem_api.py](https://github.com/mhoward91/serverless-aws/blob/master/call_prem_api.py) | Takes user input to select a player, and calls the API to return cleanly structured data |
 | [data_load.py](https://github.com/mhoward91/serverless-aws/blob/master/database-setup/data_load.py) | Loading of player data from the original csv file to the DynamoDB database |
 | [api_build.py](https://github.com/mhoward91/serverless-aws/blob/master/database-setup/api_build.py) | Flask RESTful API with `GET`, `POST` and `DELETE` requests to modify the csv data file. Not deployed |
