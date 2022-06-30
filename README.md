@@ -35,7 +35,7 @@ https<nolink>://7gie9bueak.execute-api.eu-west-2.amazonaws.com/dev/players/\<pla
 - assists
 - rank
 
-## Sample calls (from Python)
+## Sample calls (from a Python program)
 
 In order to call the API endpoint from a python program, install the `requests` module from PyPI:
 
@@ -82,9 +82,9 @@ print(f"{req['player']} played for {req['team']}, and scored {req['goals']} goal
 | File   | Description                              |
 | -------- | ---------------------------------------- |
 | [api_dynamo.py](https://github.com/mhoward91/serverless-aws/blob/master/api_dynamo.py) | The Flask API |
-| [call_prem_api.py](https://github.com/mhoward91/serverless-aws/blob/master/call_prem_api.py) | Takes user input to select a player, and calls the API to return cleanly structured data |
+| [call_prem_api.py](https://github.com/mhoward91/serverless-aws/blob/master/call_prem_api.py) | Sample Python program which calls the API - takes user input to select a player, and calls the API and returns the data according to a pre-defined structure |
 | [data_load.py](https://github.com/mhoward91/serverless-aws/blob/master/database-setup/data_load.py) | Loading of player data from the original csv file to the DynamoDB database |
-| [api_build.py](https://github.com/mhoward91/serverless-aws/blob/master/database-setup/api_build.py) | Flask RESTful API with `GET`, `POST` and `DELETE` requests to modify the csv data file. Not deployed |
+| [api_build.py](https://github.com/mhoward91/serverless-aws/blob/master/database-setup/api_build.py) | Flask RESTful API with `GET`, `POST` and `DELETE` requests which modify the csv data file. Not part of the serverless deployment |
 
 ## License
 
